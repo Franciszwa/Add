@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width,
+                 initial-scale=1.0,
+                 maximum-scale=1.0,
+                 minimum-scale=1.0,
+                 user-scalable=no">
+  <title>Franciszw</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body ontouchstart="">
+  <main class="container">
+    <h1>/ SPAM REQUEST /</h1>
+
+    <input
+      id="userId"
+      type="text"
+      inputmode="numeric"
+      autocomplete="off"
+      autocorrect="off"
+      autocapitalize="off"
+      spellcheck="false"
+      placeholder="ID را وارد کن"
+    >
+
+    <div class="buttons">
+      <!-- دکمه ارسال -->
+      <button id="startBtn">
+        <i class="fas fa-rocket"></i>send
+      </button>
+
+      <!-- دکمه تلگرام -->
+      <a href="https://t.me/Franciszw" target="_blank">
+        <button id="telegramBtn">
+          <i class="fab fa-telegram-plane"></i> Telegram  
+        </button>
+      </a>
+    </div>
+
+    <pre id="log">SYSTEM @Franciszw ▓▒░</pre>
+  </main>
+
+  <script src="script.js"></script>
+  <script src="notice.js"></script>
+  <script src="rememberId.js"></script>
+
+  <!-- 🚫 Extra Zoom Protection -->
+  <script>
+    document.addEventListener('gesturestart', e => e.preventDefault());
+    document.addEventListener('gesturechange', e => e.preventDefault());
+    document.addEventListener('gestureend', e => e.preventDefault());
+
+    let lastTouchEnd = 0;
+    document.addEventListener('touchend', e => {
+      const now = Date.now();
+      if (now - lastTouchEnd <= 300) e.preventDefault();
+      lastTouchEnd = now;
+    }, false);
+
+
+</body>
+</html>

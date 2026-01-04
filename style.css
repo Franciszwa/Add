@@ -1,0 +1,299 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background: radial-gradient(circle at top, #0a0f1f, #020409 70%);
+  font-family: 'Orbitron', monospace;
+  color: #00fff7;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+}
+
+/* ===== TITLE ===== */
+h1 {
+  font-size: 28px;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  color: #00fff7;
+  text-align: center;
+}
+
+/* ===== INPUT ===== */
+input {
+  width: 100%;
+  max-width: 440px;
+  padding: 14px;
+  background: rgba(0,0,0,0.2);
+  border: 1px solid #00fff7;
+  color: #00fff7;
+  font-size: 14px;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  border-color: #0077ff;
+  box-shadow: 0 0 12px rgba(0,119,255,0.5);
+}
+
+/* ===== LOG BOX ===== */
+#log {
+  width: 100%;
+  max-width: 440px;
+  margin-top: 20px;
+  height: 250px;
+  background: #01080f;
+  border-radius: 12px;
+  padding: 15px;
+  font-size: 13px;
+  font-family: 'Courier New', monospace;
+  overflow-y: auto;
+  box-shadow: inset 0 0 15px rgba(0,255,255,0.2);
+}
+
+.log-line {
+  margin: 4px 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.log-line.success { color: #00ff66; }
+.log-line.warn    { color: #ffaa00; }
+.log-line.error   { color: #ff4444; }
+.log-line.info    { color: #00ccff; }
+
+/* ===== BUTTONS (هماهنگ) ===== */
+.buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+  max-width: 440px;
+  width: 100%;
+}
+
+.buttons button {
+  flex: 1; /* همه دکمه‌ها یک اندازه */
+  padding: 14px 0;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  box-shadow: 0 3px 10px rgba(0,119,255,0.3);
+}
+
+/* دکمه ارسال */
+#startBtn {
+  background: linear-gradient(135deg, #00bfff, #0077ff);
+  color: #fff;
+}
+
+#startBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0,119,255,0.5);
+}
+
+/* دکمه تلگرام */
+#telegramBtn {
+  background: linear-gradient(135deg, #00bfff, #0077ff);
+  color: #fff;
+}
+
+#telegramBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0,119,255,0.5);
+}
+
+#telegramBtn svg {
+  width: 18px;
+  height: 18px;
+  margin-right: 6px;
+  fill: #fff;
+}
+
+/* ===== SITE NOTICE (NO CARD) ===== */
+#site-notice {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.notice-box {
+  background: none;
+  padding: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #fff;
+  text-align: center;
+}
+
+.notice-box b { color: #ff4444; }
+.notice-box .warn { color: #ffaa00; font-weight: 600; }
+.notice-box .danger { color: #ff4444; font-weight: 600; }
+
+.notice-box button {
+  margin-top: 0;
+  padding: 12px 22px;
+  background: linear-gradient(135deg, #00ff66, #00ccff);
+  border: none;
+  border-radius: 10px;
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.notice-box button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,255,255,0.5);
+}
+/* ===== SITE NOTICE ===== */
+#site-notice {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.5s ease;
+}
+
+.notice-box {
+  max-width: 360px;
+  background: #050c14;
+  border: 1px solid #ff4444;
+  border-radius: 14px;
+  padding: 20px;
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.8;
+  text-align: center;
+  box-shadow:
+    0 0 25px #ff444488,
+    inset 0 0 15px #ff444422;
+  animation: pulseWarn 2s infinite;
+}
+
+.notice-box b {
+  color: #ff4444;
+  font-size: 16px;
+}
+
+.notice-box .warn {
+  color: #ffaa00;
+  font-weight: bold;
+}
+
+.notice-box .danger {
+  color: #ff4444;
+  font-weight: bold;
+}
+
+#site-notice.hide {
+  animation: fadeOut 1s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  to { opacity: 0; }
+}
+
+@keyframes pulseWarn {
+  0% { box-shadow: 0 0 15px #ff444488; }
+  50% { box-shadow: 0 0 35px #ff4444cc; }
+  100% { box-shadow: 0 0 15px #ff444488; }
+}
+/* ===== TOAST CONTAINER ===== */
+#toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+/* ===== COMMON TOAST STYLE ===== */
+.toast {
+  padding: 14px 24px;
+  border-radius: 12px;
+  min-width: 220px;
+  font-family: 'Orbitron', monospace;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  color: #fff;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: auto;
+  text-align: center;
+  line-height: 1.5;
+  cursor: default;
+}
+
+/* ===== TOAST TYPES ===== */
+.toast.info {
+  background: linear-gradient(135deg, #00ccff, #0077ff);
+}
+
+.toast.success {
+  background: linear-gradient(135deg, #00ff66, #00cc66);
+  color: #000;
+}
+
+.toast.warn {
+  background: linear-gradient(135deg, #ffaa00, #ff8800);
+}
+
+.toast.error {
+  background: linear-gradient(135deg, #ff4444, #cc0000);
+}
+
+.toast.highlight {
+  background: linear-gradient(135deg, #ff00ff, #ff66ff);
+}
+
+/* ===== ANIMATIONS ===== */
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.toast.hide {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+/* ===== HOVER EFFECT ===== */
+.toast:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(0,0,0,0.7);
+}
